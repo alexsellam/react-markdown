@@ -4,13 +4,24 @@ import './App.css';
 import { sampleText } from './sampleText'
 
 class App extends Component {
+  state = {
+    text: sampleText
+  }
+
+  handleChange = e => {
+    const text = e.target.value
+    this.setState({
+      text: text
+    })
+  }
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="col-sm-6">
             <textarea 
-            value={sampleText}
+            onChange={this.handleChange}
+            value={this.state.text}
             className="form-control" 
             rows="35" />
           </div>
